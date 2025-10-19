@@ -5,448 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stan Lee Natividad | Full-Stack AI Engineer</title>
     <meta name="description" content="Portfolio of Stan Lee Natividad, a Full-Stack AI Engineer passionate about building real-world AI solutions.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .site-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #00f0ff;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #00f0ff;
-        }
-
-        .nav-toggle {
-            display: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .hero .container {
-            z-index: 1;
-        }
-
-        .hero-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, #00f0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #00f0ff;
-            margin-bottom: 1rem;
-        }
-
-        .hero-text {
-            font-size: 1.1rem;
-            color: #cccccc;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 32px;
-            background: linear-gradient(135deg, #00f0ff, #0066ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
-        }
-
-        /* Content Sections */
-        .content-section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #ffffff;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #00f0ff;
-            margin: 10px auto 0;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: #1a1a1a;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #cccccc;
-            font-size: 1.1rem;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .skills-grid li {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .skills-grid li:hover {
-            transform: translateY(-5px);
-            background: rgba(0, 240, 255, 0.1);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.2);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #1a1a1a;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        .project-description {
-            color: #cccccc;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-
-        .project-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            list-style: none;
-        }
-
-        .project-stack li {
-            background: rgba(0, 240, 255, 0.2);
-            color: #00f0ff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .project-link {
-            color: #00f0ff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .project-link:hover {
-            color: #ffffff;
-        }
-
-        /* Experience Section */
-        .experience-section {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .experience-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #00f0ff, #0066ff);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 60px;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 11px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            background: #00f0ff;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-        }
-
-        .experience-title {
-            font-size: 1.3rem;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-company {
-            color: #00f0ff;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-description {
-            color: #cccccc;
-            line-height: 1.6;
-        }
-
-        /* Certifications Section */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .cert-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-link-wrapper {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .cert-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            background: #1a1a1a;
-        }
-
-        .cert-info {
-            padding: 1rem;
-        }
-
-        .cert-title {
-            font-size: 1.1rem;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-issuer {
-            color: #00f0ff;
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        .site-footer {
-            background: #000000;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .social-links svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .social-links a {
-            color: #ffffff;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #00f0ff;
-        }
-
-        .copyright {
-            color: #666666;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .nav-links {
-                display: none;
-            }
-            .nav-toggle {
-                display: block;
-            }
-            .projects-grid, .certifications-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <!-- If you prefer the single-file approach, a backup of the original inline styles was saved to original-inline-styles.css -->
 </head>
 <body>
 
@@ -501,7 +61,8 @@
             </div>
         </section>
 
-        id="projects" class="projects-section content-section">
+        <section id="projects" class="projects-section content-section">
+
             <div class="container">
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-grid">
@@ -649,6 +210,64 @@
                        
                         </div>
                     </article>
+
+                    <!-- ======== NEW PROJECTS ======== -->
+                    <article class="project-card">
+                        <a href="https://github.com/gryphlee/AI-Student-Intervention" target="_blank" rel="noopener noreferrer">
+                            <img class="project-image" src="images/project-ai-student-intervention.jpg" alt="AI Student Intervention Project Image">
+                        </a>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Student Intervention System</h3>
+                            <p class="project-description">
+                                Predictive analytics system that detects at-risk students and recommends personalized academic interventions using machine learning.
+                            </p>
+                            <ul class="project-stack"><li>Python</li><li>TensorFlow</li><li>Data Science</li></ul>
+                            <a href="https://github.com/gryphlee/AI-Student-Intervention" class="project-link" target="_blank">GitHub Repo</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="https://github.com/gryphlee/Philippine-Earthquake-Intelligence-Platform" target="_blank" rel="noopener noreferrer">
+                            <img class="project-image" src="images/project-philippine-earthquake-intelligence-platform.jpg" alt="Philippine Earthquake Intelligence Platform Image">
+                        </a>
+                        <div class="project-content">
+                            <h3 class="project-title">Philippine Earthquake Intelligence Platform</h3>
+                            <p class="project-description">
+                                AI-driven geospatial monitoring platform that analyzes seismic patterns and forecasts potential earthquake zones for disaster resilience.
+                            </p>
+                            <ul class="project-stack"><li>Python</li><li>Geospatial AI</li><li>Data Visualization</li></ul>
+                            <a href="https://github.com/gryphlee/Philippine-Earthquake-Intelligence-Platform" class="project-link" target="_blank">GitHub Repo</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="https://github.com/gryphlee/Quantum-Bio-Digital-Simulator" target="_blank" rel="noopener noreferrer">
+                            <img class="project-image" src="images/project-quantum-bio-digital-simulator.jpg" alt="Quantum Bio-Digital Simulator Project Image">
+                        </a>
+                        <div class="project-content">
+                            <h3 class="project-title">Quantum Bio-Digital Simulator</h3>
+                            <p class="project-description">
+                                A next-generation biomedical simulation platform that leverages <strong>Quantum Computing principles</strong>, Artificial Intelligence, and Data Science to model human physiology and test medical interventions virtually.
+                            </p>
+                            <ul class="project-stack"><li>Quantum Computing</li><li>AI</li><li>Data Science</li></ul>
+                            <a href="https://github.com/gryphlee/Quantum-Bio-Digital-Simulator" class="project-link" target="_blank">GitHub Repo</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="https://github.com/gryphlee/Quantum-Earth-Digital-Twin" target="_blank" rel="noopener noreferrer">
+                            <img class="project-image" src="images/project-quantum-earth-digital-twin.jpg" alt="Quantum Earth Digital Twin Project Image">
+                        </a>
+                        <div class="project-content">
+                            <h3 class="project-title">Quantum Earth Digital Twin</h3>
+                            <p class="project-description">
+                                An AI-driven Earth simulation integrating <strong>Quantum Computing</strong> and environmental modeling to replicate global systems for predictive climate analysis and sustainability research.
+                            </p>
+                            <ul class="project-stack"><li>Quantum Computing</li><li>AI</li><li>Climate Modeling</li></ul>
+                            <a href="https://github.com/gryphlee/Quantum-Earth-Digital-Twin" class="project-link" target="_blank">GitHub Repo</a>
+                        </div>
+                    </article>
+                    <!-- ======== END NEW PROJECTS ======== -->
                 </div>
             </div>
         </section>
